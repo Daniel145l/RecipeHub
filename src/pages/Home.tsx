@@ -78,6 +78,15 @@ export const Home = () => {
           className='w-xl px-4 py-2 rounded-md outline-none bg-white border-2 border-gray-300'
         />
 
+        <div>
+          <Link 
+            to={"/favorites"}
+            title='Ir para receitas favoritas'
+          >
+            ❤️
+          </Link>
+        </div>
+
         <select
           value={selectedCategory}
           onChange={(e) => setSelectedCategory(e.target.value)}
