@@ -52,7 +52,7 @@ export const Home = () => {
   return (
     <div className='p-12 px-24 mx-auto text-center justify-center gap-4'>
       <div className='flex items-center justify-between mb-10 p-6 rounded-xl shadow-[0_3px_10px_rgb(0,0,0,0.2)]'>
-        <h1 className='text-2xl font-bold text-green-700'>RecipeHub</h1>
+        <h1 className='text-2xl font-bold text-[#CF1717]'>RecipeHub</h1>
         <input
           type="text"
           placeholder='Digite o nome do prato ou ingrediente'
@@ -64,7 +64,7 @@ export const Home = () => {
         <select
           value={selectedCategory}
           onChange={(e) => setSelectedCategory(e.target.value)}
-          className='text-green-700'
+          className='text-[#cf1717]'
         >
           <option value="todas">Todas as categorias</option>
           {category.map((cat) => (
