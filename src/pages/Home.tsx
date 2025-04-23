@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { RecipeCard } from '../components/RecipeCard';
 import { Recipe } from '../types/Recipe';
 import { api } from '../utils/api';
+import { fetchByCategory } from '../utils/fetchByCategory';
 import { fetchRecipe } from '../utils/fetchRecipe';
 
 interface Category {
@@ -32,7 +33,7 @@ export const Home = () => {
       }
     };
     load();
-  }, [search]);
+  }, [search]);  
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -47,12 +48,28 @@ export const Home = () => {
     fetchCategories();
   }, []);
 
+  useEffect(() => {
+    const fetch = async () => {
+      if(!selectedCategory || selectedCategory === 'all') return;
 
+      try {
+        setLoading(true);
+        const data = await fetchByCategory(selectedCategory);
+        setRecipes(data);
+      } catch {
+        toast.error('Erro ao buscar por receitas');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetch();
+  }, [selectedCategory])
 
   return (
     <div className='p-12 px-24 mx-auto text-center justify-center gap-4'>
       <div className='flex items-center justify-between mb-10 p-6 rounded-xl shadow-[0_3px_10px_rgb(0,0,0,0.2)]'>
-        <h1 className='text-2xl font-bold text-green-700'>RecipeHub</h1>
+        <h1 className='text-2xl font-bold text-[#CF1717]'>RecipeHub</h1>
         <input
           type="text"
           placeholder='Digite o nome do prato ou ingrediente'
@@ -64,9 +81,9 @@ export const Home = () => {
         <select
           value={selectedCategory}
           onChange={(e) => setSelectedCategory(e.target.value)}
-          className='text-green-700'
+          className='text-[#cf1717]'
         >
-          <option value="todas">Todas as categorias</option>
+          <option value="all">Todas as categorias</option>
           {category.map((cat) => (
             <option key={cat.strCategory} value={cat.strCategory}>{cat.strCategory}</option>
           ))}
