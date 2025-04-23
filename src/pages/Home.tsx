@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { RecipeCard } from '../components/RecipeCard';
 import { Recipe } from '../types/Recipe';
 import { api } from '../utils/api';
+import { fetchByCategory } from '../utils/fetchByCategory';
 import { fetchRecipe } from '../utils/fetchRecipe';
 
 interface Category {
@@ -32,7 +33,7 @@ export const Home = () => {
       }
     };
     load();
-  }, [search]);
+  }, [search]);  
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -47,7 +48,23 @@ export const Home = () => {
     fetchCategories();
   }, []);
 
+  useEffect(() => {
+    const fetch = async () => {
+      if(!selectedCategory || selectedCategory === 'all') return;
 
+      try {
+        setLoading(true);
+        const data = await fetchByCategory(selectedCategory);
+        setRecipes(data);
+      } catch {
+        toast.error('Erro ao buscar por receitas');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetch();
+  }, [selectedCategory])
 
   return (
     <div className='p-12 px-24 mx-auto text-center justify-center gap-4'>
@@ -66,7 +83,7 @@ export const Home = () => {
           onChange={(e) => setSelectedCategory(e.target.value)}
           className='text-[#cf1717]'
         >
-          <option value="todas">Todas as categorias</option>
+          <option value="all">Todas as categorias</option>
           {category.map((cat) => (
             <option key={cat.strCategory} value={cat.strCategory}>{cat.strCategory}</option>
           ))}
