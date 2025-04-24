@@ -17,20 +17,23 @@ export const Favorites = () => {
             <p className='text-gray-400'>Você pode favoritar uma receita clicando no botão com um "❤️" na página de detalhes da receita</p>
           </div>
         ) : (
-          <div>
+          <div className='grid grid-cols-2 w-full gap-12'>
             { favorites.map((recipe) => (
-              <div key={recipe.idMeal}>
+              <div key={recipe.idMeal} className='pt-12'>
                 <RecipeCard recipe={recipe} onClick={() => {}} />
-                <div>
+                <div className='flex justify-between pt-4'>
                   <Link
                     to={`/recipe/${recipe.idMeal}`}
+                    className='text-white bg-red-400 p-4 rounded-xl hover:bg-red-500 cursor-pointer'
                   >
                     Ver detalhes
                   </Link>
                   <button
                     onClick={() => removeFavorites(recipe.idMeal)}
+                    className='p-4 bg-red-600 rounded-4xl cursor-pointer'
+                    title='Desfavoritar'
                   >
-                    Remover
+                    🤍
                   </button>
                 </div>
               </div>
