@@ -7,7 +7,8 @@ export const Favorites = () => {
 
   return (
     <div className='mx-auto max-w-3/4 p-8 flex flex-col items-center justify-center'>
-      <header className='rounded-xl shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-6 text-center w-full'>
+      <header className='rounded-xl shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-6 text-center w-full flex justify-center'>
+        <Link to={"/"}>Voltar</Link>
         <h1 className='text-[#CF1717] text-2xl font-bold'>Receitas Favoritas</h1>
       </header>
       <div className='min-h-96 w-full justify-center flex items-center'>
