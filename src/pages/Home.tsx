@@ -103,7 +103,7 @@ export const Home = () => {
       {loading ? (
         <p className='text-green-700 font-bold'>Carregando receitas</p>
       ) : (
-       <div className='w-full mx-auto grid grid-cols-1 px-8 gap-12 text-center lg:grid-cols-2 lg:px-0'>
+       <div className='w-full mx-auto grid grid-cols-1 px-8 gap-12 text-center lg:grid-cols-2 lg:px-12'>
         {recipes.map((recipe) => (
           <div >
             <RecipeCard key={recipe.idMeal} recipe={recipe} onClick={() => alert("Detalhes em breve")} />

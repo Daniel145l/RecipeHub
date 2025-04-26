@@ -18,7 +18,7 @@ export const Favorites = () => {
             <p className='text-gray-400'>Você pode favoritar uma receita clicando no botão com um "❤️" na página de detalhes da receita</p>
           </div>
         ) : (
-          <div className='grid grid-cols-1 w-full gap-12 px-8 lg:grid-cols-2 lg:px-0'>
+          <div className='grid grid-cols-1 w-full gap-12 px-8 lg:grid-cols-2 lg:px-12'>
             { favorites.map((recipe) => (
               <div key={recipe.idMeal} className='pt-12'>
                 <RecipeCard recipe={recipe} onClick={() => {}} />
