@@ -67,7 +67,7 @@ export const Home = () => {
   }, [selectedCategory])
 
   return (
-    <div className='p-4 flex flex-col justify-center gap-4 lg: px-12'>
+    <div className='p-4 flex flex-col justify-center gap-4 lg:px-12'>
       <header className='flex items-center justify-between mb-10 p-6 px-2 rounded-xl shadow-[0_3px_10px_rgb(0,0,0,0.2)] gap-2 w-full md:px-6'>
         <h1 className='text-xl font-bold text-[#CF1717] md:text-2xl'>RecipeHub</h1>
         <input
