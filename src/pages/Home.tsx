@@ -67,21 +67,22 @@ export const Home = () => {
   }, [selectedCategory])
 
   return (
-    <div className='p-12 px-24 mx-auto text-center justify-center gap-4'>
-      <div className='flex items-center justify-between mb-10 p-6 rounded-xl shadow-[0_3px_10px_rgb(0,0,0,0.2)]'>
-        <h1 className='text-2xl font-bold text-[#CF1717]'>RecipeHub</h1>
+    <div className='p-4 flex flex-col justify-center gap-4 lg: px-12'>
+      <div className='flex items-center justify-between mb-10 p-6 px-2 rounded-xl shadow-[0_3px_10px_rgb(0,0,0,0.2)] gap-2 w-full md:px-6'>
+        <h1 className='text-xl font-bold text-[#CF1717] md:text-2xl'>RecipeHub</h1>
         <input
           type="text"
           placeholder='Digite o nome do prato ou ingrediente'
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className='w-xl px-4 py-2 rounded-md outline-none bg-white border-2 border-gray-300'
+          className='w-3xs text-sm p-1 rounded-md bg-white border-2 border-gray-300 md:w-xs md:p-2 xl:w-xl'
         />
 
         <div>
           <Link 
             to={"/favorites"}
             title='Ir para receitas favoritas'
+            className='text-4xs'
           >
             ❤️
           </Link>
@@ -90,7 +91,7 @@ export const Home = () => {
         <select
           value={selectedCategory}
           onChange={(e) => setSelectedCategory(e.target.value)}
-          className='text-[#cf1717]'
+          className='text-[#cf1717] text-4xs'
         >
           <option value="all">Todas as categorias</option>
           {category.map((cat) => (
@@ -102,7 +103,7 @@ export const Home = () => {
       {loading ? (
         <p className='text-green-700 font-bold'>Carregando receitas</p>
       ) : (
-       <div className='max-w-full mx-auto grid grid-cols-2 gap-12'>
+       <div className='w-full mx-auto grid grid-cols-1 bg-red px-8 gap-12 text-center lg:grid-cols-2 lg:px-0'>
         {recipes.map((recipe) => (
           <div >
             <RecipeCard key={recipe.idMeal} recipe={recipe} onClick={() => alert("Detalhes em breve")} />
