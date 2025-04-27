@@ -12,8 +12,8 @@ export const RecipeCard = ({ recipe } : RecipeCardProps) => {
     <motion.div
       onClick={() => navigate(`/recipe/${recipe.idMeal}`)}
       className='cursor-pointer shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded-xl min-h-80 hover:bg-amber-100 transition-transform duration-300 ease-in bg-white text-center'
-      whileHover={{scale: 1.05}}
-      whileTap={{scale: 0.95}}
+      whileHover={{scale: 1.01}}
+      whileTap={{opacity: .5}}
       initial={{opacity: 0, y: 50}}
       animate={{opacity: 1, y: 0}}
       transition={{duration: 0.1}}
