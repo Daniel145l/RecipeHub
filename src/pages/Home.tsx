@@ -106,7 +106,7 @@ export const Home = () => {
        <div className='w-full mx-auto grid grid-cols-1 px-8 gap-12 text-center lg:grid-cols-2 lg:px-12'>
         {recipes.map((recipe) => (
           <div >
-            <RecipeCard key={recipe.idMeal} recipe={recipe} onClick={() => alert("Detalhes em breve")} />
+            <RecipeCard key={recipe.idMeal} recipe={recipe} />
             <Link to={`/recipe/${recipe.idMeal}`} className='bg-[#E74C3C] p-2 text-white rounded-sm'>
               Ver detalhes
             </Link>

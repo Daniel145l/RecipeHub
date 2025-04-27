@@ -21,7 +21,7 @@ export const Favorites = () => {
           <div className='grid grid-cols-1 w-full gap-12 px-8 lg:grid-cols-2 lg:px-12'>
             { favorites.map((recipe) => (
               <div key={recipe.idMeal} className='pt-12'>
-                <RecipeCard recipe={recipe} onClick={() => {}} />
+                <RecipeCard recipe={recipe}/>
                 <div className='flex justify-between pt-4'>
                   <Link
                     to={`/recipe/${recipe.idMeal}`}
