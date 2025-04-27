@@ -107,9 +107,9 @@ export const Home = () => {
         {recipes.map((recipe) => (
           <div >
             <RecipeCard key={recipe.idMeal} recipe={recipe} />
-            <Link to={`/recipe/${recipe.idMeal}`} className='bg-[#E74C3C] p-2 text-white rounded-sm'>
+            {/* <Link to={`/recipe/${recipe.idMeal}`} className='bg-[#E74C3C] p-2 text-white rounded-sm'>
               Ver detalhes
-            </Link>
+            </Link> */}
           </div>
         ))}
        </div>
