@@ -74,7 +74,7 @@ export const Home = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.5,
+        staggerChildren: 0.3,
       },
     },
   };
@@ -125,12 +125,13 @@ export const Home = () => {
         variants={containerVariants}
         initial='hidden'
         animate='visible'
-       >
+        >
         {recipes.map((recipe) => (
           <motion.div
-            variants={cardVariants}
+            variants={ cardVariants }
+            key={recipe.idMeal}
           >
-            <RecipeCard key={recipe.idMeal} recipe={recipe} />
+            <RecipeCard recipe={recipe} />
             {/* <Link to={`/recipe/${recipe.idMeal}`} className='bg-[#E74C3C] p-2 text-white rounded-sm'>
               Ver detalhes
             </Link> */}
