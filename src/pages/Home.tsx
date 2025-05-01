@@ -50,12 +50,16 @@ export const Home = () => {
 
   useEffect(() => {
     const fetch = async () => {
-      if(!selectedCategory || selectedCategory === 'all') return;
-
+      
       try {
         setLoading(true);
-        const data = await fetchByCategory(selectedCategory);
-        setRecipes(data);
+        if(!selectedCategory || selectedCategory === 'all') {
+          const data = await fetchRecipe('');
+          setRecipes(data);
+        } else {
+          const data = await fetchByCategory(selectedCategory);
+          setRecipes(data);
+        }
       } catch {
         toast.error('Erro ao buscar por receitas');
       } finally {
