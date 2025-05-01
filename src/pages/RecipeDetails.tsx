@@ -61,10 +61,10 @@ export default function RecipeDetails() {
         onClick={() => 
           favorite ? removeFavorites(recipe.idMeal) : addFavorites(recipe)
         }
-        className="text-white p-3 mt-8 bg-red-500 rounded-2xl border-2 border-transparent cursor-pointer font-semibold hover:bg-white hover:text-red-500 hover:border-red-500 transition duration-200"
+        className= {!favorite ? "border-2 border-red-600 p-4 rounded-4xl mt-4 cursor-pointer" : "border-2 border-white bg-red-600 mt-4 cursor-pointer rounded-4xl p-4"}
+        title={!favorite ? "Favoritar" : "Desfavoritar"}
       >
-        { favorite ? "Remover da lista de Favoritos" : "Adicionar a lista de Favoritos"}
-        {favorite ? <span className="text-red-500">❤️</span> : <span className="text-red-500">🤍</span>}
+        {!favorite ? <span className="text-red-500">❤️</span> : <span className="text-red-500">🤍</span>}
       </button>
 
     </div>

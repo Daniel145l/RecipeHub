@@ -6,3 +6,9 @@
   background-color: #FFF;
   color: #000;
 }
+
+* {
+  outline: none;
+  box-sizing: border-box;
+  
+}
